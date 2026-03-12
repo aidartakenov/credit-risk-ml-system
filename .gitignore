@@ -1,3 +1,6 @@
+# Ignoring the dataset
+data/raw/Credit_score_cleaned_data.csv
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[codz]
