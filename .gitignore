@@ -1,12 +1,8 @@
 # Ignoring the dataset
-<<<<<<< HEAD
 data/raw/*
 !data/raw/.gitkeep
 data/processed/*
 !data/processed/.gitkeep
-=======
-data/raw/Credit_score_cleaned_data.csv
->>>>>>> 109427823969b29fa82d5bd539d1890514188745
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
@@ -215,8 +211,5 @@ cython_debug/
 marimo/_static/
 marimo/_lsp/
 __marimo__/
-<<<<<<< HEAD
 models/*.pkl
 models/*.joblib
-=======
->>>>>>> 109427823969b29fa82d5bd539d1890514188745
