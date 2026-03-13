@@ -1,9 +1,12 @@
 import joblib
+from pathlib import Path
 
-MODEL_PATH = "models/credit_model.pkl"
+BASE_DIR = Path(__file__).resolve().parents[2]
 
-def load_model():
-    return joblib.load(MODEL_PATH)
+MODEL_PATH = BASE_DIR / "models/pipeline_rf.pkl"
 
-# Загрузка модели один раз
-model = load_model()
+print("Loading pipeline...")
+
+model = joblib.load(MODEL_PATH)
+
+print("Pipeline loaded successfully")

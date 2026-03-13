@@ -6,6 +6,7 @@ from sklearn.preprocessing import StandardScaler, OrdinalEncoder, FunctionTransf
 from sklearn.compose import ColumnTransformer
 from sklearn.pipeline import Pipeline
 from sklearn.ensemble import RandomForestClassifier
+from src.utils.feature_engineering import add_custom_features
 import joblib
 
 # Loading the data
@@ -18,21 +19,14 @@ y = df["Credit_Score"]
 # Categorical and numerical features
 cat_features = ['Occupation', 'Credit_Mix', 'Payment_of_Min_Amount', 'Payment_Behaviour']
 num_features = [
-    'Age', 'Annual_Income', 'Monthly_Inhand_Salary', 'Num_Bank_Accounts', 
-    'Num_Credit_Card', 'Interest_Rate', 'Num_of_Loan', 'Delay_from_due_date',
-    'Num_of_Delayed_Payment', 'Changed_Credit_Limit', 'Num_Credit_Inquiries',
-    'Outstanding_Debt', 'Credit_Utilization_Ratio', 'Credit_History_Age', 
-    'Total_EMI_per_month', 'Amount_invested_monthly', 'Monthly_Balance'
+    'Age',
+    'Annual_Income',
+    'Monthly_Inhand_Salary',
+    'Num_of_Loan',
+    'Total_EMI_per_month'
 ]
 
 # Creating new features
-def add_custom_features(X):
-    X = X.copy()
-    X['Debt_to_Income'] = X['Outstanding_Debt'] / X['Annual_Income']
-    X['EMI_to_Income'] = X['Total_EMI_per_month'] / X['Monthly_Inhand_Salary']
-    X['Active_Loans'] = X['Num_of_Loan']
-    X['Occupation_CreditMix'] = X['Occupation'].astype(str) + '_' + X['Credit_Mix'].astype(str)
-    return X
 
 custom_features = ['Debt_to_Income', 'EMI_to_Income', 'Active_Loans', 'Occupation_CreditMix']
 
@@ -77,3 +71,8 @@ print(classification_report(y_val, y_val_pred))
 y_test_pred = pipeline.predict(X_test)
 print("Test Classification Report:")
 print(classification_report(y_test, y_test_pred))
+
+print(df["Occupation"].unique())
+print(df["Credit_Mix"].unique())
+print(df["Payment_of_Min_Amount"].unique())
+print(df["Payment_Behaviour"].unique())
