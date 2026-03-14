@@ -1,68 +1,84 @@
-<!-- ui/index.html -->
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>Credit Score Prediction</title>
+    <title>Кредитный скоринг</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
-        <h1>Credit Score Prediction</h1>
+        <h1>🏦 Оценка кредитного рейтинга</h1>
         <form id="prediction-form">
-            <label>Age: <input type="number" name="Age" required></label>
-            <label>Annual Income: <input type="number" name="Annual_Income" step="0.01" required></label>
-            <label>Monthly Salary: <input type="number" name="Monthly_Inhand_Salary" step="0.01" required></label>
-            <label>Number of Loans: <input type="number" name="Num_of_Loan" required></label>
-            <label>Total EMI per month: <input type="number" name="Total_EMI_per_month" step="0.01" required></label>
+            <label>Возраст:
+                <input type="number" name="Age" required placeholder="Например: 35">
+            </label>
 
-            <label>Occupation:
-                <select name="Occupation">
-                    <option value="Engineer">Engineer</option>
-                    <option value="Doctor">Doctor</option>
-                    <option value="Teacher">Teacher</option>
-                    <option value="Developer">Developer</option>
-                    <option value="Scientist">Scientist</option>
-                    <option value="Journalist">Journalist</option>
-                    <option value="Musician">Musician</option>
-                    <option value="Entrepreneur">Entrepreneur</option>
-                    <option value="Media_Manager">Media_Manager</option>
-                    <option value="Manager">Manager</option>
-                    <option value="Mechanic">Mechanic</option>
-                    <option value="Doctor">Doctor</option>
-                    <option value="Architect">Architect</option>
-                    <option value="Lawyer">Lawyer</option>
-                    <option value="Writer">Writer</option>
+            <label>Годовой доход ($):
+                <input type="number" name="Annual_Income" step="0.01" required placeholder="Например: 50000">
+            </label>
+
+            <label> Ежемесячная зарплата ($):
+                <input type="number" name="Monthly_Inhand_Salary" step="0.01" required placeholder="Например: 4000">
+            </label>
+
+            <label>Количество кредитов:
+                <input type="number" name="Num_of_Loan" required placeholder="Например: 2">
+            </label>
+
+            <label>Ежемесячный платеж по кредитам ($):
+                <input type="number" name="Total_EMI_per_month" step="0.01" required placeholder="Например: 500">
+            </label>
+
+            <label>Профессия:
+                <select name="Occupation" required>
+                    <option value="">Выберите профессию</option>
+                    <option value="Architect">Архитектор</option>
+                    <option value="Developer">Разработчик</option>
+                    <option value="Doctor">Врач</option>
+                    <option value="Engineer">Инженер</option>
+                    <option value="Entrepreneur">Предприниматель</option>
+                    <option value="Journalist">Журналист</option>
+                    <option value="Lawyer">Юрист</option>
+                    <option value="Manager">Менеджер</option>
+                    <option value="Mechanic">Механик</option>
+                    <option value="Media_Manager">Медиа-менеджер</option>
+                    <option value="Musician">Музыкант</option>
+                    <option value="Scientist">Ученый</option>
+                    <option value="Teacher">Учитель</option>
+                    <option value="Writer">Писатель</option>
                 </select>
             </label>
 
-            <label>Credit Mix:
-                <select name="Credit_Mix">
-                    <option value="Good">Good</option>
-                    <option value="Standard">Standard</option>
-                    <option value="Bad">Bad</option>
+            <label>Кредитный микс:
+                <select name="Credit_Mix" required>
+                    <option value="">Выберите тип</option>
+                    <option value="Good">Хороший (разные виды кредитов)</option>
+                    <option value="Standard">Стандартный</option>
+                    <option value="Bad">Плохой (только микрозаймы)</option>
                 </select>
             </label>
 
-            <label>Payment of Min Amount:
-                <select name="Payment_of_Min_Amount">
-                    <option value="Yes">Yes</option>
-                    <option value="No">No</option>
+            <label>Минимальный платеж:
+                <select name="Payment_of_Min_Amount" required>
+                    <option value="">Выберите вариант</option>
+                    <option value="No">Плачу больше минимума</option>
+                    <option value="Yes">Только минимальный платеж</option>
                 </select>
             </label>
 
-            <label>Payment Behaviour:
-                <select name="Payment_Behaviour">
-                    <option value="High_spent_Medium_value_payments">High spent Medium value payments</option>
-                    <option value="Low_spent_Small_value_payments">Low spent Small value payments</option>
-                    <option value="High_spent_Small_value_payments">High spent Small value payments</option>
-                    <option value="Low_spent_Medium_value_payments">Low spent Medium value payments</option>
-                    <option value="High_spent_Large_value_payments">High spent Large value payments</option>
-                    <option value="Low_spent_Large_value_payments">Low spent Large value payments</option>
+            <label>Поведение при оплате:
+                <select name="Payment_Behaviour" required>
+                    <option value="">Выберите тип поведения</option>
+                    <option value="High_spent_Large_value_payments">Много трачу, большие платежи</option>
+                    <option value="High_spent_Medium_value_payments">Много трачу, средние платежи</option>
+                    <option value="High_spent_Small_value_payments">Много трачу, маленькие платежи</option>
+                    <option value="Low_spent_Large_value_payments">Мало трачу, большие платежи</option>
+                    <option value="Low_spent_Medium_value_payments">Мало трачу, средние платежи</option>
+                    <option value="Low_spent_Small_value_payments">Мало трачу, маленькие платежи</option>
                 </select>
             </label>
 
-            <button type="submit">Predict Credit Score</button>
+            <button type="submit">🔍 Получить решение</button>
         </form>
 
         <div id="result"></div>
