@@ -1,5 +1,78 @@
-# **Credit-risk-ml-system**
-End-to-end machine learning system for credit risk prediction with FastAPI, Streamlit and Docker.
+# **Credit Risk ML System**
+
+End-to-end Machine Learning system for predicting credit score categories:
+- Good
+- Standard
+- Poor
+
+Includes:
+- Model training pipeline
+- Inference service (FastAPI)
+- Frontend UI
+- Database logging (SQLite)
+- Dockerized deployment
+
+---
+
+# Features
+
+ - ML Pipeline (Scikit-learn)  
+ -  Feature Engineering  
+ - REST API (FastAPI)  
+ - Interactive UI (HTML/CSS/JS)  
+ - Prediction confidence  
+ - SQLite logging  
+ - Docker & Docker Compose  
+
+---
+
+# Project Structure
+```
+/credit-risk-ml-system/
+|--data/ 
+|  |--raw/
+|     |     |--.gitkeep
+|     |     |--Credit_score_cleaned_data.csv
+|  |--processed/
+|     |     |--X_test.csv
+|     |     |--X_train.csv
+|     |     |--X_val.csv
+|     |     |--y_test.csv
+|     |     |--y_train.csv
+|     |     |--y-val.csv
+|--models/
+|     |--pipeline.pkl
+|--notebooks/
+|     |--data_preprocessing.ipynb
+|     |--eda.ipynb
+|     |--modeling.ipynb
+|--src/
+|     |--api/
+|     |--database/
+|     |--inference/
+|     |--services/
+|     |--training/
+|     |--utils/
+|--ui/
+|     |--index.html
+|     |--script.js
+|     |--style.css
+|--venv
+|--docker-compose.yml
+|--Dockerfile
+|--.gitignore
+|--README.MD
+|--requirements.txt
+|--run_api.sh
+```
+
+# Installation commands 
+
+## 1. Clone repository
+```bash
+git clone https://github.com/aidartakenov/credit-risk-ml-system.git
+cd credit-risk-ml-system
+```
 
 ## Dataset
 

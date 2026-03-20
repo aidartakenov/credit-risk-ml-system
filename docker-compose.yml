@@ -1,0 +1,21 @@
+version: "3.9"
+
+services:
+  backend:
+    build: .
+    container_name: credit_api
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/app
+    restart: always
+
+  ui:
+    image: nginx:latest
+    container_name: credit_ui
+    ports:
+      - "3000:80"
+    volumes:
+      - ./ui:/usr/share/nginx/html:ro
+    depends_on:
+      - backend
