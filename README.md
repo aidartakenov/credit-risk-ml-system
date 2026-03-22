@@ -74,6 +74,62 @@ git clone https://github.com/aidartakenov/credit-risk-ml-system.git
 cd credit-risk-ml-system
 ```
 
+## 2. Create virtual environment
+```
+python -m venv venv
+source venv/bin/activate  # Mac/Linux
+venv\Scripts\activate     # Windows
+```
+## 3. You can install dependencies with:
+```
+pip install -r requirements.txt
+```
+## 4. You can train the model with:
+```
+python -m src.training.train
+```
+## 5. You can run the test with:
+```
+python -m src.inference.inference
+```
+
+# Running the API
+    You can run the api with:
+```
+python -m src.inference.inference
+```
+and open the Swagger UI with the link:
+```
+http://127.0.0.1:8000/docs
+```
+
+# Running the UI
+    You can run the UI:
+```
+cd ui
+python -m http.server 5500
+```
+and open in the browser with the link:
+```
+http://localhost:5500
+```
+
+# Database
+For svaing the prediction results I used SQLite.
+It stores input data, prediction, confidence.
+File: ```data/predictions.db```
+However, all the database files were gitignored.
+
+# Docker
+You can build and run docker with:
+```
+docker compose up --build
+```
+
+
+
+
+
 ## Dataset
 
 Download the dataset from the link:
