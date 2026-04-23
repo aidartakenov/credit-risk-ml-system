@@ -3,11 +3,10 @@ from pathlib import Path
 import json
 from datetime import datetime
 
-BASE_DIR = Path(__file__).resolve().parents[2]  # корень проекта
+BASE_DIR = Path(__file__).resolve().parents[2] 
 DB_PATH = BASE_DIR / "data" / "predictions.db"
-DB_PATH.parent.mkdir(exist_ok=True)  # создаём папку data, если нет
+DB_PATH.parent.mkdir(exist_ok=True) 
 
-# Подключение и создание таблицы
 conn = sqlite3.connect(DB_PATH, check_same_thread=False)
 cursor = conn.cursor()
 

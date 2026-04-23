@@ -74,6 +74,13 @@ git clone https://github.com/aidartakenov/credit-risk-ml-system.git
 cd credit-risk-ml-system
 ```
 
+Than you have to download the dataset. The csv file of dataset you can find via this link: 
+```
+https://drive.google.com/file/d/1GcTLyas1eowSrbnAwmfSntlriGEaVeH_/view?usp=drive_link
+```
+Than place the file in:
+data/raw/Credit_score_cleaned_data.csv
+
 ## 2. Create virtual environment
 ```
 python -m venv venv
@@ -93,14 +100,14 @@ python -m src.training.train
 python -m src.inference.inference
 ```
 
-# Running the API
+# Running the FastAPI
     You can run the api with:
 ```
-python -m src.inference.inference
+uvicorn src.api.main:app --reload --port 8001
 ```
 and open the Swagger UI with the link:
 ```
-http://127.0.0.1:8000/docs
+http://127.0.0.1:8001/docs
 ```
 
 # Running the UI
@@ -111,8 +118,9 @@ python -m http.server 5500
 ```
 and open in the browser with the link:
 ```
-http://localhost:5500
+http://localhost:5500 
 ```
+or the link will be available in terminal.
 
 # Database
 For svaing the prediction results I used SQLite.
@@ -125,10 +133,6 @@ You can build and run docker with:
 ```
 docker compose up --build
 ```
-
-
-
-
 
 ## Dataset
 

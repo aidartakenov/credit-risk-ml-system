@@ -13,13 +13,16 @@ form.addEventListener('submit', async (e) => {
     });
 
     try {
-        const response = await fetch('http://localhost:8000/predict', {
+        const response = await fetch('http://127.0.0.1:8001/predict', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(data)
         });
         
-        const result = await response.json();
+        const text = await response.text();
+        console.log("RAW:", text);
+
+        const result = JSON.parse(text);
         
         // Показываем результат
         resultDiv.style.display = 'block';
@@ -84,3 +87,5 @@ form.addEventListener('submit', async (e) => {
         resultDiv.innerText = '❌ Ошибка соединения: ' + err.message;
     }
 });
+
+console.log("SCRIPT LOADED");

@@ -5,6 +5,11 @@ from src.services.prediction_service import predict
 
 app = FastAPI()
 
+origins = [
+    "http://localhost:5500",
+    "http://127.0.0.1:5500"
+]
+
 # Добавляем CORS
 app.add_middleware(
     CORSMiddleware,
@@ -22,3 +27,5 @@ async def root():
 async def get_prediction(data: CreditRequest):
     result = predict(data)
     return result
+
+print("MAIN FILE LOADED")
